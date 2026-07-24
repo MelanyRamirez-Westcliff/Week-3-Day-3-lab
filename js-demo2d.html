@@ -1,79 +1,109 @@
-<!DOCTYPE html>
-<html>
-<head>  
-<title>My Fourth Web Page</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="demo.css">
+    <title>My Fourth Web Page</title>
 
-</head> 	
-<body>
+    <link rel="stylesheet" href="demo.css" />
+  </head>
 
-<div id="container">
+  <body>
+    <div id="container">
+      <header>My Web Site Brand</header>
 
-<header>My Web Site Brand</header>
-<nav>
-	<ul>
-    <li><a href="js-demo2.html">Home</a></li>
-    <li><a href="js-demo2b.html">About</a></li>
-    <li><a href="js-demo2d.html">Gallery</a></li>
-    <li><a href="js-demo2c.html">Contact</a></li>
-	</ul>
-</nav>
+      <nav>
+        <ul>
+          <li><a href="js-demo2.html">Home</a></li>
+          <li><a href="js-demo2b.html">About</a></li>
+          <li><a href="js-demo2d.html">Gallery</a></li>
+          <li><a href="js-demo2c.html">Contact</a></li>
+        </ul>
+      </nav>
 
-<main>
-  <h1>My Fourth Heading</h1>
-  <p>My Fourth paragraph.</p>
+      <main>
+        <h1>My Fourth Heading</h1>
 
-    <ul id="album">
-      <!--<li id="photo"><img src="images/winterland1.jpg"></li>
-      <li id="photo"><img src="images/winterland2.jpg"></li>
-      <li id="photo"><img src="images/winterland3.jpg"></li>
-      <li id="photo"><img src="images/winterland4.jpg"></li>
-      <li id="photo"><img src="images/winterland5.jpg"></li>
-      <li id="photo"><img src="images/winterland6.jpg"></li>-->
-    </ul>
-</main>
+        <p>My Fourth paragraph.</p>
 
-<footer>&copy; Copyright 2020</footer>
+        <ul id="album"></ul>
+      </main>
 
-</div>
+      <footer>&copy; Copyright 2020</footer>
+    </div>
 
-<script>
-  var photos = []; //Declare an empty array to store image element
-  var fileNames = []; //Declare an empty element to store image file names
-  var imageList = []; //Declare an empty array to store html list that contain an image
-  var image; //Declare an empty variable to store the assembled image list codes
-  var openList1 = "<li id='photo"
-  var openList2 = "'>"; //Declare a variable to contain open list tag
-  var closeList = "</li>"; //Declare a variable to contain an close list tag
-  var openCaption = "<p class='caption'>";
-  var closeCaption = "</p>";
-  var captionText = ["Beautiful Winter","Snow Land","Wintery Road","Winter in the Country","Bitter Cold Day","Sunny Winter Day"];
-  var openDesc = "<div class='description'>";
-  var closeDesc = "</div>";
-  var descText = [
-    "A beautiful winter scenery in the morning",
-    "After an overnight snowstorm",
-    "Snowy drive on the road",
-    "Snow day in the country",
-    "Burrrrr...a typical cold in January",
-    "Cold, snowy but sunny and beautiful"
-  ]
+    <script>
+      var photos = [];
+      var fileNames = [];
+      var imageList = [];
 
-  for (var i=0; i<6; i++) {
-    fileNames.push("winterland"+(i+1)); //Create image file name and store in the array
-    photos.push("<img src='images/"+fileNames[i]+".jpg'>"); //Assemble file name into image element and store in an array
-    
-    //Assemble the image element from the array with list element stored in variables
-    image = openList1 + (i+1) + openList2 + photos[i] + "<br>" + openCaption + captionText[i] + closeCaption + openDesc + descText[i] + closeDesc + closeList; 
-    imageList.push(image); //Store(push) the assembled list codes into an array
-    
-  }
-  
-  //Display all six image codes stored in the array
-  document.getElementById("album").innerHTML = imageList;
+      var image;
 
-</script>
+      var openList1 = "<li id='photo";
+      var openList2 = "'>";
+      var closeList = "</li>";
 
-</body>
+      var openCaptionTag = "<p class='caption'>";
+      var closeCaptionTag = "</p>";
+
+      var openDescTag = "<div class='description'>";
+      var closeDescTag = "</div>";
+
+      var captionTexts = [
+        "Beautiful Winter",
+        "Snow Land",
+        "Wintery Road",
+        "Winter in the Country",
+        "Bitter Cold Day",
+        "Sunny Winter Day",
+        "Snowy Forest",
+        "Frozen Landscape",
+        "Winter Morning",
+        "Peaceful Snowfall",
+      ];
+
+      var descTexts = [
+        "A beautiful winter scenery in the morning",
+        "After an overnight snowstorm",
+        "Snowy drive on the road",
+        "Snow day in the country",
+        "Burrrrr... a typical cold day in January",
+        "Cold, snowy but sunny and beautiful",
+        "A quiet forest covered with fresh snow",
+        "A frozen landscape during the winter season",
+        "A peaceful winter morning surrounded by snow",
+        "Soft snow falling over the winter landscape",
+      ];
+
+      for (var i = 0; i < 10; i++) {
+        fileNames.push("winterland" + (i + 1));
+
+        photos.push(
+          "<img src='images/" +
+            fileNames[i] +
+            ".jpg' alt='" +
+            captionTexts[i] +
+            "'>",
+        );
+
+        image =
+          openList1 +
+          (i + 1) +
+          openList2 +
+          photos[i] +
+          openCaptionTag +
+          captionTexts[i] +
+          closeCaptionTag +
+          openDescTag +
+          descTexts[i] +
+          closeDescTag +
+          closeList;
+
+        imageList.push(image);
+      }
+
+      document.getElementById("album").innerHTML = imageList.join("");
+    </script>
+  </body>
 </html>

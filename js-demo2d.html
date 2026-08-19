@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>My Fourth Web Page</title>
+    <title>My Fourth Web Page-Melany</title>
 
     <link rel="stylesheet" href="demo.css" />
   </head>
@@ -23,7 +23,7 @@
       </nav>
 
       <main>
-        <h1>My Fourth Heading</h1>
+        <h1>My Fourth Heading-Melany</h1>
 
         <p>My Fourth paragraph.</p>
 
@@ -44,8 +44,11 @@
       var openList2 = "'>";
       var closeList = "</li>";
 
-      var openCaptionTag = "<p class='caption'>";
-      var closeCaptionTag = "</p>";
+      var openFigureTag = "<figure>";
+      var closeFigureTag = "</figure>";
+
+      var openCaptionTag = "<figcaption class='caption'>";
+      var closeCaptionTag = "</figcaption>";
 
       var openDescTag = "<div class='description'>";
       var closeDescTag = "</div>";
@@ -91,6 +94,7 @@
           openList1 +
           (i + 1) +
           openList2 +
+          openFigureTag +
           photos[i] +
           openCaptionTag +
           captionTexts[i] +
@@ -98,6 +102,7 @@
           openDescTag +
           descTexts[i] +
           closeDescTag +
+          closeFigureTag +
           closeList;
 
         imageList.push(image);
